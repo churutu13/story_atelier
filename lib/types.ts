@@ -1,0 +1,11 @@
+export type ProjectType='novel'|'short_story'|'saga'|'collection'|'other';
+export type ProjectStatus='idea'|'planning'|'drafting'|'editing'|'finished';
+export type Genre='fantasy'|'romance'|'thriller'|'drama'|'young_adult'|'contemporary'|'other';
+export type Character={id:string;name:string;role:string;age?:string;appearance?:string;personality?:string;strengths?:string;weaknesses?:string;backstory?:string;mainGoal?:string;fear?:string;secret?:string;characterArc?:string;notes?:string;imageUrl?:string;tags:string[];createdAt:string;updatedAt:string};
+export type Chapter={id:string;number:number;title:string;status:string;povCharacterId?:string;keyPoints:string[];mainConflict?:string;emotionalBeat?:string;wordCount?:number;notes?:string;createdAt:string;updatedAt:string};
+export type Scene={id:string;title:string;status:string;chapterId?:string;povCharacterId?:string;locationId?:string;characterIds:string[];purpose?:string;emotionalTone?:string;keyEvent?:string;notes?:string;content?:string;createdAt:string;updatedAt:string};
+export type Idea={id:string;text:string;tags:string[];pinned:boolean;convertedTo?:string;createdAt:string;updatedAt:string};
+export type WritingDocument={id:string;title:string;chapterId?:string;sceneId?:string;content:string;wordCount:number;createdAt:string;updatedAt:string};
+export type BookStructure=Record<string,string|undefined>;
+export type GenericItem={id:string;title:string;description?:string;content?:string;category?:string;createdAt:string;updatedAt:string;[key:string]:unknown};
+export type Project={id:string;title:string;type:ProjectType;genre:Genre;status:ProjectStatus;description?:string;coverUrl?:string;progress?:number;characters:Character[];worldbuilding:GenericItem[];chapters:Chapter[];scenes:Scene[];relationships:GenericItem[];plotTwists:GenericItem[];randomIdeas:Idea[];writingDocuments:WritingDocument[];bookStructure:BookStructure;moodboard:GenericItem[];customSections:GenericItem[];createdAt:string;updatedAt:string};
